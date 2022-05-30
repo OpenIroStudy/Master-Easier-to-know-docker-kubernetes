@@ -1,5 +1,5 @@
-# Mastering-Spring-5-Study
-책 스프링 5 마스터 2/e 스터디
+# easier-to-know-docker-kubernetes
+책 <알면 더 쉬운 도커 쿠버네티스 클라우드 서비스를 위한 개발 환경 만들기> 스터디
 
 # 스터디 운영
 
