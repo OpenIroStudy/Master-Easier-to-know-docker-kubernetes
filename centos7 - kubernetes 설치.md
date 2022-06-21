@@ -42,3 +42,6 @@ gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 yum update 
 ```  
 
+
+https://sangchul.kr/77
+
