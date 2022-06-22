@@ -110,3 +110,11 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane-node/ubuntu unta
 // pod삭제하고 다시 실행
 
 ```
+
+
+# 유니꺼 worker 노드 추가를 위한 코드  
+```  
+kubeadm join 10.178.0.2:6443 --token 1dfguw.flleeg9ujq3oocja \
+        --discovery-token-ca-cert-hash sha256:1fa4fffe21fb23c1f0a586cca378446454b913a19ea9e1552eca212c8007c4ec 
+
+```  
