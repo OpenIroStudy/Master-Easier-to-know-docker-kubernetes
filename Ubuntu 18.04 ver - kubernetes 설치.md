@@ -53,6 +53,17 @@ kubeadm join 10.178.0.7:6443 --token 55hgzc.ej223swrgtl1isje \
 ```  
 
 ### init 에러시
+
+
+![image](https://user-images.githubusercontent.com/43237961/174969799-323ea741-171e-4155-8dbc-b561f46c927a.png) <br><br>
+cpu 2개 이상 사용해야 한다는 식의 에러 등장 시 아래 코드 실행
+
+```
+sudo kubeadm init --ignore-preflight-errors=NumCPU
+```
+
+
+
 [ERROR CRI]: container runtime is not running: output:  
 
 위와 같은 에러시  
