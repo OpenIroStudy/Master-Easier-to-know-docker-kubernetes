@@ -52,6 +52,16 @@ kubeadm join 10.178.0.7:6443 --token 55hgzc.ej223swrgtl1isje \
 --discovery-token-ca-cert-hash sha256:2b1e8c917919e0a554bcf5e28a2e8000032e22b3b73dedf896aeda4e23c5890b
 ```  
 
+### init 에러시
+[ERROR CRI]: container runtime is not running: output:  
+
+위와 같은 에러시  
+``` ruby
+rm /etc/containerd/config.toml
+systemctl restart containerd
+kubeadm init
+```  
+
 ``` ruby
 mkdir -p $HOME/.kube
 
