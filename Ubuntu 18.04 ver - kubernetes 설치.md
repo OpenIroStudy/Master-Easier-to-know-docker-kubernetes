@@ -84,4 +84,18 @@ kubectl apply -n kube-system -f "https://cloud.weave.works/k8s/net?k8s-version=$
 watch kubectl get pods --all-namespaces
 
 
+```  
+
+
+# kubectl run을 했을 때 container status가 pending에서 멈춰있는 문제
+``` ruby
+// 생태 체크
+kubectl describe pod [pod name]
+
+// preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.
+// Pending 상태로 멈춰 있는 경우는, 노드에 스케줄 될 수 없음을 의미한다. 
+
+kubectl taint nodes --all node-role.kubernetes.io/control-plane-node/ubuntu untainted
+// pod삭제하고 다시 실행
+
 ```
