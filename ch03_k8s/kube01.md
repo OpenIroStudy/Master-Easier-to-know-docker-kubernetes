@@ -89,4 +89,4 @@ kubeadm token create —print-join-command
 ```
 kubectl get nodes -o wide
 ```
-Ready 상태가 되면 정상적으로 설치가 된 것 이다.
+Ready 상태가 되면 정상적으로 설치가 된 것이다.
