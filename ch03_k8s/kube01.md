@@ -61,6 +61,7 @@ https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/
 * kibe-scheduler : 노드가 배정되지 않은 새로 생성된 파드 를 감지하고, 실행할 노드를 선택하는 컨트롤 플레인 컴포넌트.
 * kube-controller-manager : 컨트롤러 프로세스를 실행하는 컨트롤 플레인 컴포넌트.
 <img width="616" alt="스크린샷 2022-06-27 오후 10 31 22" src="https://user-images.githubusercontent.com/82895809/175953794-16b20976-810c-48d0-8f19-1d4f7a49e4b9.png">
+
 * cloud-controller-manager : 클라우드별 컨트롤 로직을 포함하는 쿠버네티스 컨트롤 플레인 컴포넌트. 클라우드 컨트롤러 매니저를 통해 클러스터를 클라우드 공급자의 API에 연결하고, 해당 클라우드 플랫폼과 상호 작용하는 컴포넌트와 클러스터와만 상호 작용하는 컴포넌트를 구분할 수 있게 해줌.
 * node-component : 노드 컴포넌트는 동작 중인 파드를 유지시키고 쿠버네티스 런타임 환경을 제공하며, 모든 노드 상에서 동작.
 * kubelet : 클러스터의 각 노드에서 실행되는 에이전트. Kubelet은 파드에서 컨테이너가 확실하게 동작하도록 관리.
