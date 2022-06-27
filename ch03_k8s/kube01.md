@@ -51,3 +51,20 @@ https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/
 
 <img width="796" alt="스크린샷 2022-06-27 오후 10 24 34" src="https://user-images.githubusercontent.com/82895809/175952450-041532f3-266f-4623-b52f-1cc44837bc1f.png">
 
+### 컨트롤 플레인 컴포넌트
+컨트롤 플레인 컴포너트는 클러스터에 관한 결정을 내리고 클러스터 이벤트를 감지하며 반응한다.
+
+컨트롤 플레인 컴포넌트는 클러스터 내 어떠한 머신에서라도 동작할 수 있다.
+
+* kube-apiserver : 쿠버네티스의 모든 컴포넌트의 통신을 담당.
+* etcd : 모든 클러스터 데이터를 담는 쿠버네티스 뒷단의 저장소로 사용되는 일관성·고가용성 키-값 저장소
+* kibe-scheduler : 노드가 배정되지 않은 새로 생성된 파드 를 감지하고, 실행할 노드를 선택하는 컨트롤 플레인 컴포넌트.
+* kube-controller-manager : 컨트롤러 프로세스를 실행하는 컨트롤 플레인 컴포넌트.
+<img width="616" alt="스크린샷 2022-06-27 오후 10 31 22" src="https://user-images.githubusercontent.com/82895809/175953794-16b20976-810c-48d0-8f19-1d4f7a49e4b9.png">
+* cloud-controller-manager : 클라우드별 컨트롤 로직을 포함하는 쿠버네티스 컨트롤 플레인 컴포넌트. 클라우드 컨트롤러 매니저를 통해 클러스터를 클라우드 공급자의 API에 연결하고, 해당 클라우드 플랫폼과 상호 작용하는 컴포넌트와 클러스터와만 상호 작용하는 컴포넌트를 구분할 수 있게 해줌.
+* node-component : 노드 컴포넌트는 동작 중인 파드를 유지시키고 쿠버네티스 런타임 환경을 제공하며, 모든 노드 상에서 동작.
+* kubelet : 클러스터의 각 노드에서 실행되는 에이전트. Kubelet은 파드에서 컨테이너가 확실하게 동작하도록 관리.
+* kube-proxy : kube-proxy는 클러스터의 각 노드에서 실행되는 네트워크 프록시로, 쿠버네티스의 서비스 개념의 구현부.
+* container-runtime : 컨테이너 런타임은 컨테이너 실행을 담당하는 소프트웨어. 쿠버네티스는 containerd, CRI-O와 같은 컨테이너 런타임 및 모든 Kubernetes CRI (컨테이너 런타임 인터페이스) 구현체를 지원.
+
+
