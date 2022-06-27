@@ -82,3 +82,11 @@ kubeadm token create —print-join-command
 만약 이 과정을 거치지 않는다면 파드 배포가 불가능해진다.
 
 각 클러스터마다 Network Add-On 하나씩만 설치할 수 있다.
+
+<img width="1111" alt="스크린샷 2022-06-28 오전 12 17 20" src="https://user-images.githubusercontent.com/82895809/175975195-da9e19c0-2f49-4df1-a4f2-336a00c0b73f.png">
+
+설치된 쿠버네티스의 상태를 볼 수 있다.
+```
+kubectl get nodes -o wide
+```
+Ready 상태가 되면 정상적으로 설치가 된 것 이다.
