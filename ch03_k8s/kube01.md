@@ -68,4 +68,17 @@ https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/
 * kube-proxy : kube-proxy는 클러스터의 각 노드에서 실행되는 네트워크 프록시로, 쿠버네티스의 서비스 개념의 구현부.
 * container-runtime : 컨테이너 런타임은 컨테이너 실행을 담당하는 소프트웨어. 쿠버네티스는 containerd, CRI-O와 같은 컨테이너 런타임 및 모든 Kubernetes CRI (컨테이너 런타임 인터페이스) 구현체를 지원.
 
+## 쿠버네티스 설치
+토큰 재발급 (토큰은 24시간의 제한 시간 있음)
+```
+kubeadm token create —print-join-command
+```
 
+### 파드 네트워크 Add-On 설치
+통신을 하기 위해서는 Pod Network Add-On을 설치해야 한다.
+
+파드들의 배포와 통신을 위해 네트워크를 설정해야 하기 때문이다.
+
+만약 이 과정을 거치지 않는다면 파드 배포가 불가능해진다.
+
+각 클러스터마다 Network Add-On 하나씩만 설치할 수 있다.
