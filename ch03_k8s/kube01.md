@@ -69,11 +69,33 @@ https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/
 * container-runtime : 컨테이너 런타임은 컨테이너 실행을 담당하는 소프트웨어. 쿠버네티스는 containerd, CRI-O와 같은 컨테이너 런타임 및 모든 Kubernetes CRI (컨테이너 런타임 인터페이스) 구현체를 지원.
 
 ## 쿠버네티스 설치
-토큰 재발급 (토큰은 24시간의 제한 시간 있음)
+#### 토큰 재발급 (토큰은 24시간의 제한 시간 있음)
 ```
-kubeadm token create
+kubeadm token list
+```
+이 명령어로 토큰이 있는지 확인.
+
+```
+kubeadm token create -ttl [시간]
+```
+ttl 옵션에 해당하는 시간만큼 토큰이 생성된다. (생략 시 24시간)
+
+밑에는 Hash 값 확인하는 명령어.
+```
+openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'
 ```
 
+worker 노드를 추가할 때 필요!
+```
+kubeadm join <Kubernetes API Server:PORT> --token <2. Token 값> --discovery-token-ca-cert-hash sha256:<3. Hash 값>
+```
+
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+해당 유저가 kubectl 명령문을 사용할 수 있도록 위와 같은 스크립트를 실행해 준다.
 ### 파드 네트워크 Add-On 설치
 
 * pod란?
@@ -104,10 +126,39 @@ kubectl get nodes -o wide
 ```
 Ready 상태가 되면 정상적으로 설치가 된 것이다.
 
+> kubeadm이란?
+> 
+> kubeadm은 Kubernetes Cluster 생성을 위한 kubeadm init과 kubeadm join을 위한 툴이다. 
+> 
+> kubeadm init : Control-plane 노드의 부트스트랩
+> 
+> kubeadm join : Worker 노드를 부트스트랩하고 Cluster에 조인
+> 
+> kubeadm upgrade : Kubernetes Cluster를 신규 버전으로 업그레이드
+> 
+> kubeadm config : kubeadm 1.7 이하 버전 사용 시 Cluster를 초기화할 때 kubeadm upgrade를 위한 Cluster 설정
+> 
+> kubeadm token : kubeadm join을 위한 토큰 관리
+> 
+> kubeadm reset : kubeadm 혹은 kubeadm join에 의해 호스트에 발생한 변경 사항을 원복
+> 
+> kubeadm version : 버전 출력
+> 
+> kubeadm alpha : 커뮤니티로부터 피드백을 수집하기 위해 준비된 기능들을 미리 확인
+
 ### 포트 추가
 쿠버네티스를 운영하기 위해서는 필요한 포트를 열어 주어야 한다.
 
 <img width="707" alt="스크린샷 2022-06-28 오전 12 26 26" src="https://user-images.githubusercontent.com/82895809/175976764-b0d19ed0-6bf8-4b27-bc42-0545fd5608f0.png">
+
+포트 추가를 하지 않으면 밑처럼 접속을 못함.
+
+<img width="375" alt="image" src="https://user-images.githubusercontent.com/82895809/176148175-bb4b8a12-9b6a-4db8-8cbe-0891012b7331.png">
+
+포트를 추가해줘야지 정상적으로 접속이 가능하다.
+
+<img width="396" alt="image" src="https://user-images.githubusercontent.com/82895809/176148321-065e5c68-2020-4f44-ae46-5c7906726f15.png">
+
 
 ## 쿠버네티스의 오브젝트
 쿠버네티스는 모든 요소를 yaml 파일로 생성하여 관리할 수 있다.
