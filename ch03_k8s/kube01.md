@@ -71,7 +71,7 @@ https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/
 ## 쿠버네티스 설치
 토큰 재발급 (토큰은 24시간의 제한 시간 있음)
 ```
-kubeadm token create —print-join-command
+kubeadm token create
 ```
 
 ### 파드 네트워크 Add-On 설치
