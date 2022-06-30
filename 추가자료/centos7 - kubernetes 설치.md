@@ -47,3 +47,6 @@ https://sangchul.kr/77
 
 # centos 설치 !!!!!!
 https://zunoxi.tistory.com/42?category=950191
+
+## 네트워크 설정
+ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
