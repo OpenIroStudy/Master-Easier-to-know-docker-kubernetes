@@ -45,3 +45,5 @@ yum update
 
 https://sangchul.kr/77
 
+# centos 설치 !!!!!!
+https://zunoxi.tistory.com/42?category=950191
