@@ -48,5 +48,11 @@ https://sangchul.kr/77
 # centos 설치 !!!!!!
 https://zunoxi.tistory.com/42?category=950191
 
+
+## 방화벽
+전부 내리지 말고 필요한 포트만 허용한다.  
+![image](https://user-images.githubusercontent.com/67637716/176613629-dee5630b-c4d1-4242-9c6f-201fcf74d920.png)  
+
+
 ## 네트워크 설정
  kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
