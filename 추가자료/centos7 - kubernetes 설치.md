@@ -56,3 +56,7 @@ https://zunoxi.tistory.com/42?category=950191
 
 ## 네트워크 설정
  kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+ 
+ 
+ kubectl apply -f https://github.com/coreos/flannel/raw/master/Documentation/kube-flannel.yml
+
